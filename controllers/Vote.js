@@ -155,14 +155,20 @@ title= JSON.stringify(title)
 
 let selected = JSON.stringify(select)
 
+let url = JSON.stringify(req.params.id)
+
+console.log('-------------------',req.protocols);
 
       res.render('votes/show', {
         options,
       svg: `<script>
+
+
+
 let joinedData = ${all}
 // console.log('JOINED D3', joinedData)
 let titles = ${title}
-console.log(titles)
+let params = ${url}
 
         var margin = {
     top: 90,
@@ -214,7 +220,9 @@ let svg = d3.select('#chart').append('svg').attr("width", w + margin.left + marg
 
           var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-          var tip = d3.tip().attr('class', 'd3-tip').html((d, i)=> {
+          var tip = d3.tip()
+          // .attr('class', 'd3-tip')
+          .html((d, i)=> {
               return '<h4>' + d.title +'<br>'+ 'Votes: '+ d.data  + '</h4>';
             });
 
@@ -251,6 +259,13 @@ let svg = d3.select('#chart').append('svg').attr("width", w + margin.left + marg
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)")
 
+        $(document).ready(()=>{
+             $(".twitter-share-button").on('click', ()=>{
+               $("#tweetThem").attr("href", "https://twitter.com/intent/tweet?text=" + "Check out this voting application https://lit-chamber-11037.herokuapp.com/votes/" + params );
+  console.log('twitter')
+             })
+
+        })
 
 
 
