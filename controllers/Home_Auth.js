@@ -5,7 +5,8 @@ const User = require('../models/user')
 const userController = {}
 
 userController.home = (req, res)=>{
-    console.log('userController.home',req.user);
+
+    console.log('userController.home', typeof req.user);
   res.render('home_auth/home', {
       user: req.user
   })

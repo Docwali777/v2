@@ -2,8 +2,10 @@
 
 <div class="container">
   <div class="row">
-    <a href="/votes"><span>All Votes </span></a>
-    <a href="/user"> <span>Votes by: <%- user.username %> </span></a>
+  <div class="btn-group btn-group-lg">
+    <a href="/votes"><button class='btn btn-default'>All Votes </button></a>
+    <a href="/user"> <button class='btn btn-default'>Votes by: <%- user.username %> </button></a>
+  </div>
     <div class="header">
       <h1>Votes create by: <%= user.username %></h1>
       <a href="/votes/new">Create New Poll</a>

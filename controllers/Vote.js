@@ -50,7 +50,8 @@ vote.deleteById = (req, res) => {
     if (err) {
       console.log('error deleting ITEM');
     } else {
-      // console.log('item deleteById')
+
+      console.log('item deleteById', options)
       res.redirect('/votes')
     }
   })
