@@ -4,7 +4,11 @@
 <div class="container">
   <div class="row">
     <a href="/votes"><span>All Votes </span></a>
-    <a href="/user"> <span>Votes by: <%- user.username %> </span></a>
+  <%  if(user){     %>
+      <a href="/user"> <span>Votes by: <%- user.username %> </span></a>
+  <%  } else {  %>
+      <span></span>
+<%    }  %>
 
 <div class="panel-group">
 <% options.map(vote=>{ %>
