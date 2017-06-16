@@ -3,7 +3,8 @@
 
 <div class="container">
   <div class="row">
-    <h1>All Votes</h1>
+    <a href="/votes"><span>All Votes </span></a>
+    <a href="/user"> <span>Votes by: <%- user.username %> </span></a>
 
 <div class="panel-group">
 <% options.map(vote=>{ %>

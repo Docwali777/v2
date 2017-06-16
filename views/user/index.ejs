@@ -2,15 +2,16 @@
 
 <div class="container">
   <div class="row">
-    <h1>user votes</h1>
+    <a href="/votes"><span>All Votes </span></a>
+    <a href="/user"> <span>Votes by: <%- user.username %> </span></a>
     <div class="header">
-      <h1>Votes create by user: <%= user.username %></h1>
+      <h1>Votes create by: <%= user.username %></h1>
       <a href="/votes/new">Create New Poll</a>
     </div>
     <% voting.map(d=>{  %>
     <div class="panel panel-default">
       <div class="panel-body">
-        Title: <%= d.options.title %>  - <em>created by <strong><%= d.user  %></strong></em>
+        Title: <%= d.options.title %>  - <em>created by <strong><%= d.user  %></strong> on - <%= d.options.created.toLocaleString() %></em>
 
           <a href="/votes/<%= d._id %>/delete"><button class='pull-right btn btn-danger'>Delete</button></a>
           <a href="/votes/<%= d._id %>"><button class='pull-right btn btn-primary'>Vote</button></a>
