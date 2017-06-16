@@ -3,6 +3,7 @@
 
 <div class="container">
   <div class="row">
+    <h1>All Created by users</h1>
 <div class="btn-group btn-group-justified">
   <a href="/votes"><button class='btn btn-default'>All Votes </button class='btn btn-default'></a>
 <%  if(user){     %>
@@ -18,7 +19,7 @@
 <% options.map(vote=>{ %>
   <div class="panel panel-default">
     <div class="panel-body">
-      Title: <%= vote.options.title %>  - <em>created by <strong><%= vote.user  %></strong></em>
+      Title: <%= vote.options.title %>  - <em>created by <strong><%= vote.user  %></strong></em> on <%= (vote.options.created).toLocaleString() %>
       <a href="/votes/<%= vote._id %>"><button class='btn btn-primary pull-right'>Show</button></a>
     </div>
   </div>
